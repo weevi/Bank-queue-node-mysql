@@ -20,9 +20,10 @@ var con = mysql.createConnection({
 con.connect(function (err) {
     if (err) throw err;
     console.log("Connected!");
-    var sql =  "CREATE TABLE customers (name VARCHAR(255), clientNo TINYINT(255), specialist TINYINT(255) )";
+    var sql = "SELECT * FROM customers"
+    // var sql =  "CREATE TABLE customers (name VARCHAR(255), clientNo INT(255), specialist TINYINT(255) )";
     con.query(sql, function (err, result) {
         if (err) throw err;
-        console.log("Table created");
+        console.log(result);
     });
 });
