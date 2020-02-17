@@ -17,20 +17,31 @@ var con = mysql.createConnection({
 //     });
 // });
 
-// con.connect(function(err) {
-//     if (err) throw err;
-//     console.log("Connected!");
-//     var sql = "INSERT INTO customers (name, address) VALUES ('Company Inc', 'Highway 37')";
-//     con.query(sql, function (err, result) {
-//       if (err) throw err;
-//       console.log("inserted");
-//     });
-//   });
-
 con.connect(function(err) {
     if (err) throw err;
-    con.query("SELECT * FROM customers", function (err, result, fields) {
+    console.log("Connected!");
+    var sql = `
+    INSERT INTO 
+        customers(name, clientNo, specialist)
+    VALUES
+        ('Donny Joe','1001','1'),
+        ('Sally Muller','2001','2'),
+        ('John Duran','3001','3'),
+        ('Katy Spears','4001','4'),
+        ('Samanta Stukt','1002','1'),
+        ('Ross Macdey','2002','2'),
+        ('Laurent Michel','3002','3'),
+        ('Tierry Durpal','4002','4')`;
+    con.query(sql, function (err, result) {
       if (err) throw err;
-      console.log(result);
+      console.log("inserted");
     });
   });
+
+// con.connect(function(err) {
+//     if (err) throw err;
+//     con.query("SELECT * FROM customers", function (err, result, fields) {
+//       if (err) throw err;
+//       console.log(result);
+//     });
+//   });
